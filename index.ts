@@ -12,7 +12,7 @@ async function main() {
     // Ensure the keypair is created properly
     // console.log(Uint8Array.from(JSON.parse(process.env.PRIVATE_KEY!)).byteLength)
     const keypair = Keypair.fromSecretKey(Uint8Array.from(JSON.parse(process.env.PRIVATE_KEY!)),{skipValidation: true});
-    const ws = new WebSocket("ws://localhost:8081");
+    const ws = new WebSocket("https://uptimechecker-hub.onrender.com:8081");
     // console.log("main function called.")
     ws.onmessage = async (event) => {
         const data = JSON.parse(event.data);
